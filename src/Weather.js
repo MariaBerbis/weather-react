@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 
 import WeatherSearch from "./WeatherSearch";
+import FormattedDate from "./FormattedDate";
 import Footer from "./Footer";
 
 export default function Weather(props) {
@@ -13,7 +14,7 @@ export default function Weather(props) {
       ready: true,
       city: response.data.city,
       temperature: response.data.temperature.current,
-      date: response.data.time * 1000,
+      date: new Date(response.data.time * 1000),
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
       icon: response.data.condition.icon_url,
@@ -45,7 +46,9 @@ export default function Weather(props) {
               </div>
             </div>
             <p className="weather-app-details">
-              <span>{weatherData.date},</span>{" "}
+              <span>
+                <FormattedDate date={weatherData.date} />,
+              </span>{" "}
               <span className="text-capitalize">
                 {" "}
                 {weatherData.description}
