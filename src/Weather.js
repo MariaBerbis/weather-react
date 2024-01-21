@@ -5,21 +5,20 @@ import "./Weather.css";
 import WeatherSearch from "./WeatherSearch";
 import Footer from "./Footer";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       city: response.data.city,
       temperature: response.data.temperature.current,
-      date: response.data.time,
+      date: response.data.time * 1000,
       wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
       icon: response.data.condition.icon_url,
       description: response.data.condition.description,
     });
-
-    setReady(true);
   }
   if (weatherData.ready) {
     return (
@@ -62,8 +61,7 @@ export default function Weather() {
       </div>
     );
   } else {
-    let city = "London";
-    const ApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=5399eea49f9baa9t4a0de908084b4of2&units=metric`;
+    const ApiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=5399eea49f9baa9t4a0de908084b4of2&units=metric`;
     axios.get(ApiUrl).then(handleResponse);
 
     return "Loading...";
