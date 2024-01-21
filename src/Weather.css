@@ -1,5 +1,5 @@
 .Weather {
-  background: white;
+  background: rgb(255, 255, 255, 0.3);
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.09);
   border-radius: 16px;
   max-width: 700px;
@@ -8,7 +8,7 @@
 }
 
 .Weather header {
-  border-bottom: 1px solid #643a6b;
+  border-bottom: 1px solid rgb(100, 58, 107, 0.5);
   padding: 30px;
 }
 

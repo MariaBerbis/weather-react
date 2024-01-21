@@ -1,8 +1,10 @@
 .App {
-  background: linear-gradient(180deg,
+  background-image: url(../public/cielo.jpg);
+  background-size: cover;
+  /* background: linear-gradient(180deg,
       rgba(2, 0, 36, 1) 0%,
       rgba(206, 201, 201, 1) 0%,
-      rgb(95, 38, 74) 100%);
+      rgb(95, 38, 74) 100%);*/
   font-family: "Roboto", sans-serif;
   border: 1px solid white;
 }
