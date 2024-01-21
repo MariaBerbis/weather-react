@@ -112,3 +112,22 @@
 .weather-forecast-temperature-min {
   opacity: 0.5;
 }
+
+.Weather .search-form-input {
+  background-color: #f4e2f9;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  padding: 20px;
+  width: 75%;
+}
+
+.Weather .search-form-button {
+  background: #643a6b;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  margin-left: 5px;
+  padding: 20px;
+}
