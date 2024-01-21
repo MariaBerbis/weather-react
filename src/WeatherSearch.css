@@ -1,0 +1,18 @@
+.WeatherSearch .search-form-input {
+    background-color: #f4e2f9;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 20px;
+    width: 75%;
+}
+
+.WeatherSearch .search-form-button {
+    background: #643a6b;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    margin-left: 5px;
+    padding: 20px;
+}

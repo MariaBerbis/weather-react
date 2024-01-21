@@ -1,0 +1,125 @@
+.Weather {
+  background: white;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.09);
+  border-radius: 16px;
+  max-width: 700px;
+  margin: 45px auto;
+  padding: 30px;
+}
+
+.Weather header {
+  border-bottom: 1px solid #643a6b;
+  padding: 30px;
+}
+
+.Weather main {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.Weather .main-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.Weather .weather-app-data {
+  display: block;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.Weather .weather-app-city {
+  color: #232323;
+  margin: 0;
+  font-size: 38px;
+  line-height: 48px;
+}
+
+.Weather .weather-app-details {
+  color: rgba(39, 33, 66, 0.4);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.Weather .weather-app-details strong {
+  color: #5f264a;
+}
+
+.Weather .weather-app-temperature-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.Weather .weather-app-icon {
+  font-size: 100px;
+  height: 100px;
+}
+
+.Weather .weather-app-temperature {
+  color: #232323;
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 88px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.Weather .weather-app-unit {
+  color: #232323;
+  display: inline-block;
+  font-size: 28px;
+  position: relative;
+}
+
+.Weather .weather-app-unit a {
+  text-decoration: none;
+}
+
+.weather-forecast {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.col-2 {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-forecast-icon {
+  width: 80px;
+  text-align: center;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+  color: #5f264a;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.Weather footer {
+  border-top: 1px solid #643a6b;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 13px;
+  padding: 30px 0 0;
+  text-align: center;
+}
+
+.Weather a {
+  color: #643a6b;
+}
