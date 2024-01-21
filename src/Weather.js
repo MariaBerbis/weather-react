@@ -1,82 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+
 import WeatherSearch from "./WeatherSearch";
+import Footer from "./Footer";
 
 export default function Weather() {
-  let weatherData = {
-    city: "Maspalomas",
-    temperature: 25,
-    date: "Tuesday 15:00",
-    description: "Sunny",
-    humidity: 80,
-    wind: 10,
-    imgUrl:
-      "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png",
-  };
-  return (
-    <div className="Weather">
-      <div className="container">
-        <header>
-          <WeatherSearch />
-        </header>
-        <main className="main-container">
-          <div className="weather-app-data">
-            <div>
-              <h1 className="weather-app-city">{weatherData.city}</h1>
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      city: response.data.city,
+      temperature: response.data.temperature.current,
+      date: response.data.time,
+      wind: response.data.wind.speed,
+      humidity: response.data.temperature.humidity,
+      icon: response.data.condition.icon_url,
+      description: response.data.condition.description,
+    });
+
+    setReady(true);
+  }
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <div className="container">
+          <header>
+            <WeatherSearch />
+          </header>
+          <main className="main-container">
+            <div className="weather-app-data">
               <div>
-                <img src={weatherData.imgUrl} alt={weatherData.description} />
+                <h1 className="weather-app-city">{weatherData.city}</h1>
+                <div>
+                  <img src={weatherData.icon} alt={weatherData.description} />
+                </div>
+              </div>
+              <div className="weather-app-temperature-container">
+                <div className="weather-app-temperature">
+                  {Math.round(weatherData.temperature)}
+                </div>
+                <div className="weather-app-unit">
+                  <a href="/">°C</a> | <a href="/">°F</a>
+                </div>
               </div>
             </div>
-            <div className="weather-app-temperature-container">
-              <div className="weather-app-temperature">
-                {weatherData.temperature}
-              </div>
-              <div className="weather-app-unit">
-                <a href="/">°C</a> | <a href="/">°F</a>
-              </div>
-            </div>
-          </div>
-          <p className="weather-app-details">
-            <span>{weatherData.date},</span>{" "}
-            <span> {weatherData.description}</span>
-            <br />
-            Humidity: {weatherData.humidity}%<strong></strong>, Wind:{" "}
-            {weatherData.wind}km/h
-            <strong></strong>
-          </p>
-        </main>
-        <footer>
-          This project was coded by
-          <a
-            href="https://github.com/MariaBerbis"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            Maria Berbis
-          </a>
-          , is
-          <a
-            href="https://github.com/MariaBerbis?tab=repositories"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            open-sourced on GitHub
-          </a>{" "}
-          and
-          <a
-            href="https://app.netlify.com/sites/my-weather-app-calima/overview"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            hosted on Netlify
-          </a>
-          .
-        </footer>
+            <p className="weather-app-details">
+              <span>{weatherData.date},</span>{" "}
+              <span className="text-capitalize">
+                {" "}
+                {weatherData.description}
+              </span>
+              <br />
+              Humidity: <strong>{Math.round(weatherData.humidity)}%</strong>,
+              Wind:
+              <strong>{weatherData.wind} km/s</strong>
+            </p>
+          </main>
+          <Footer />
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let city = "London";
+    const ApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=5399eea49f9baa9t4a0de908084b4of2&units=metric`;
+    axios.get(ApiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }

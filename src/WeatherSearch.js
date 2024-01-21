@@ -7,7 +7,7 @@ export default function WeatherSearch() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setSubmitted(`It is 20°C in ${city}.`);
+    setSubmitted(`${city}`);
   }
   function updateCity(event) {
     setCity(event.target.value);
