@@ -18,6 +18,7 @@ export default function WeatherSearch() {
       <form onSubmit={handleSubmit}>
         <input
           className="search-form-input"
+          autoFocus="on"
           type="search"
           onChange={updateCity}
         />
