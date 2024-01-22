@@ -1,0 +1,66 @@
+.WeatherInfo .main-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.WeatherInfo .weather-app-temperature-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.WeatherInfo .weather-app-data {
+    display: block;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.WeatherInfo .weather-app-city {
+    color: #232323;
+    margin: 0;
+    font-size: 48px;
+    line-height: 48px;
+}
+
+.WeatherInfo .weather-app-details {
+    color: rgba(39, 33, 66, 0.4);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+
+}
+
+.WeatherInfo .weather-app-details strong {
+    color: #5f264a;
+}
+
+
+.WeatherInfo .weather-app-icon {
+    font-size: 150px;
+    height: 100px;
+    display: flex;
+    margin-left: 75px;
+}
+
+.WeatherInfo .weather-app-temperature {
+    color: #232323;
+    display: inline-block;
+    font-size: 100px;
+    font-weight: bold;
+    line-height: 88px;
+    margin-left: 10px;
+}
+
+.WeatherInfo .weather-app-unit {
+    color: #232323;
+    display: inline-block;
+    font-size: 28px;
+    position: relative;
+}
+
+.WeatherInfo .weather-app-unit a {
+    color: #643a6b;
+    text-decoration: none;
+}

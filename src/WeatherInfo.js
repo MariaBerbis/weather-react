@@ -1,6 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
-import "./Weather.css";
+import "./WeatherInfo.css";
 
 export default function WeatherInfo(props) {
   return (
@@ -9,12 +9,12 @@ export default function WeatherInfo(props) {
         <div className="weather-app-data">
           <div>
             <h1 className="weather-app-city">{props.data.city}</h1>
-            <div>
+            <div className="weather-app-icon">
               <img src={props.data.icon} alt={props.data.description} />
             </div>
           </div>
           <div className="weather-app-temperature-container">
-            <div className="weather-app-temperature">
+            <div className="weather-app-temperature ms-5">
               {Math.round(props.data.temperature)}
             </div>
             <div className="weather-app-unit">
@@ -22,15 +22,17 @@ export default function WeatherInfo(props) {
             </div>
           </div>
         </div>
-        <p className="weather-app-details">
+        <div className="weather-app-details">
+          <span className="text-capitalize d-flex ms-4">
+            <FormattedDate date={props.data.date} />
+            {" , "}
+            {props.data.description}
+          </span>
           <span>
-            <FormattedDate date={props.data.date} />,
-          </span>{" "}
-          <span className="text-capitalize"> {props.data.description}</span>
-          <br />
-          Humidity: <strong>{Math.round(props.data.humidity)}%</strong>, Wind:
-          <strong>{props.data.wind} km/s</strong>
-        </p>
+            Humidity: <strong>{Math.round(props.data.humidity)}%</strong>, Wind:
+            <strong>{props.data.wind} km/s</strong>
+          </span>
+        </div>
       </main>
     </div>
   );
