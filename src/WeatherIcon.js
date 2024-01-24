@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import ReactAnimatedWeather from "react-animated-weather";
 import "./WeatherForecast.css";
 
 export default function WeatherIcon(props) {
-  const [iconUrl, setIconUrl] = useState("");
-  console.log(props);
-
-  useEffect(() => {
-    const apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.DefaultCity}&key=5399eea49f9baa9t4a0de908084b4of2&units=metric`;
-
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        const iconKey = response.data.daily;
-        const iconUrl = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconKey}.png`;
-        console.log(response.data);
-        setIconUrl(iconUrl);
-      })
-      .catch((error) => {
-        console.error("Error fetching weather data:", error);
-      });
-  }, [city]);
+  const codeMapping = {
+    "clear-sky-day": "CLEAR_DAY",
+    "clear-sky-night": "CLEAR_NIGHT",
+    "few-clouds-day": "PARTLY_CLOUDY_DAY",
+    "few-clouds-night": "PARTLY_CLOUDY_NIGHT",
+    "scattered-clouds-day": "PARTLY_CLOUDY_DAY",
+    "scattered-clouds-night": "PARTLY_CLOUDY_NIGHT",
+    "broken-clouds-day": "CLOUDY",
+    "broken-clouds-night": "CLOUDY",
+    "shower-rain-day": "RAIN",
+    "shower-rain-night": "RAIN",
+    "rain-day": "RAIN",
+    "rain-night": "RAIN",
+    "thunderstorm-day": "RAIN",
+    "thunderstorm-night'": "RAIN",
+    "snow-day": "SNOW",
+    "snow-night": "SNOW",
+    "mist-day": "FOG",
+    "mist-night": "FOG",
+  };
 
   return (
-    <div className="WeatherIcon">
-      <img
-        className="weather-forecast-icon"
-        src={`http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${iconUrl}.png`}
-        alt="Weather Icon"
-      />
-    </div>
+    <ReactAnimatedWeather
+      icon={codeMapping[props.code]}
+      color="#232323"
+      size={props.size}
+      animate={true}
+    />
   );
 }

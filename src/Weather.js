@@ -1,29 +1,25 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./Weather.css";
-
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
 import Footer from "./Footer";
+import axios from "axios";
+import "./Weather.css";
 
 export default function Weather(props) {
-  const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [city, setCity] = useState(props.defaultCity);
+
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      city: response.data.city,
       temperature: response.data.temperature.current,
-      date: new Date(response.data.time * 1000),
-      wind: response.data.wind.speed,
       humidity: response.data.temperature.humidity,
-      icon: response.data.condition.icon_url,
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
+      icon: response.data.condition.icon,
+      wind: response.data.wind.speed,
+      city: response.data.city,
     });
-  }
-  function search() {
-    const ApiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=5399eea49f9baa9t4a0de908084b4of2&units=metric`;
-    axios.get(ApiUrl).then(handleResponse);
   }
 
   function handleSubmit(event) {
@@ -31,8 +27,14 @@ export default function Weather(props) {
     search();
   }
 
-  function updateCity(event) {
+  function handleCityChange(event) {
     setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "5399eea49f9baa9t4a0de908084b4of2";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
@@ -46,7 +48,7 @@ export default function Weather(props) {
                   className="search-form-input"
                   autoFocus="on"
                   type="search"
-                  onChange={updateCity}
+                  onChange={handleCityChange}
                 />
                 <input
                   className="search-form-button"

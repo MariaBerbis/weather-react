@@ -39,9 +39,10 @@
 
 .WeatherInfo .weather-app-icon {
     font-size: 150px;
-    height: 100px;
+    height: 75px;
     display: flex;
-    margin-left: 75px;
+    margin-left: 90px;
+    opacity: 0.8;
 }
 
 .WeatherInfo .weather-app-temperature {
