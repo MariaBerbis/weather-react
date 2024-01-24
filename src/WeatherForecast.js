@@ -1,5 +1,6 @@
 import React from "react";
 import "./WeatherForecast.css";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecast() {
   return (
@@ -12,6 +13,7 @@ export default function WeatherForecast() {
           </div>
           <div>
             <img className="weather-forecast-icon" src={""} alt={""} />
+            <WeatherIcon />
             <br />
             <div className="weather-forecast-temperatures">
               <span className="weather-forecast-temperature-max">
