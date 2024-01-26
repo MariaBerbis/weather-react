@@ -1,4 +1,4 @@
-.weather-forecast {
+.WeatherForecast {
     text-align: center;
 }
 
@@ -7,26 +7,25 @@
     justify-content: space-around;
 }
 
-.col-2 {
+.col {
     flex: 1;
     margin: 0 5px;
 }
 
-.weather-forecast-date {
+.WeatherForecast-date {
     font-size: 16px;
     opacity: 0.5;
 }
 
-.weather-forecast-icon {
-    width: 80px;
+.WeatherForecast-icon {
     text-align: center;
 }
 
-.weather-forecast-temperatures {
+.WeatherForecast-temperatures {
     font-size: 13px;
     color: #5f264a;
 }
 
-.weather-forecast-temperature-min {
+.WeatherForecast-temperature-min {
     opacity: 0.5;
 }
