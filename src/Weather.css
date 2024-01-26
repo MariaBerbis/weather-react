@@ -35,3 +35,24 @@
   margin-left: 5px;
   padding: 20px;
 }
+
+@media (max-width:960px) {
+  .Weather {
+    text-align: center;
+  }
+
+  .Weather .search-form-input {
+    border: none;
+    font-size: 16px;
+    padding: 20px;
+    width: 60%;
+  }
+
+  .Weather .search-form-button {
+    border: none;
+    font-size: 16px;
+    margin-left: 5px;
+    padding: 20px;
+  }
+
+}

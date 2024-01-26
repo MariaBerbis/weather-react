@@ -6,13 +6,12 @@ export default function Footer() {
     <div className="Footer">
       <div className="container">
         <footer>
-          This project was coded by
+          This project was coded by{" "}
           <a
             href="https://github.com/MariaBerbis"
             target="_blank"
             rel="noreferrer"
           >
-            {" "}
             Maria Berbis
           </a>
           , is
