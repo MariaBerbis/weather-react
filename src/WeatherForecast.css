@@ -14,11 +14,12 @@
 
 .WeatherForecast-date {
     font-size: 16px;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 .WeatherForecast-icon {
     text-align: center;
+    padding: 10px
 }
 
 .WeatherForecast-temperatures {
@@ -27,5 +28,6 @@
 }
 
 .WeatherForecast-temperature-min {
-    opacity: 0.5;
+    opacity: 0.7;
+    padding: 0 10px;
 }
